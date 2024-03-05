@@ -6,7 +6,6 @@ return [
         'image/png',
         'image/webp',
         'image/svg+xml',
-        'application/pdf',
     ],
     'cloud_disks' => [
         's3',
@@ -21,7 +20,9 @@ return [
         'avif',
     ],
     'curation_presets' => [
-        \Awcodes\Curator\Curations\ThumbnailPreset::class,
+        \Hup234design\Cms\Filament\Curator\Curations\ThumbnailPreset::class,
+        \Hup234design\Cms\Filament\Curator\Curations\HeaderPreset::class,
+        \Hup234design\Cms\Filament\Curator\Curations\SeoPreset::class,
     ],
     'directory' => 'media',
     'disk' => env('FILAMENT_FILESYSTEM_DISK', 'public'),

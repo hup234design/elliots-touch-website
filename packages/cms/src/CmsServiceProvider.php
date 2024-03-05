@@ -4,6 +4,7 @@ namespace Hup234design\Cms;
 
 use FilamentTiptapEditor\TiptapEditor;
 use Hup234design\Cms\Components\AppLayout;
+use Hup234design\Cms\Console\Commands\CreateMediaCurations;
 use Hup234design\Cms\Filament\TipTapBlocks\GalleryBlock;
 use Illuminate\Support\Facades\App;
 use Spatie\LaravelPackageTools\Package;
@@ -17,7 +18,8 @@ class CmsServiceProvider extends PackageServiceProvider
     {
         $package->name('cms')
             ->hasViewComponents('cms', AppLayout::class)
-            ->hasViews('cms');
+            ->hasViews('cms')
+            ->hasCommands(CreateMediaCurations::class);
     }
 
     public function packageRegistered(): void
