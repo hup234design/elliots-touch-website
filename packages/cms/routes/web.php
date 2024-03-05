@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'web'],function(){
 
     Route::controller(PostController::class)
-//        ->prefix(app(\Hup234design\Cms\Settings\PostsSettings::class)->slug)
-        ->prefix('posts')
+        ->prefix(app(\Hup234design\Cms\Settings\PostsSettings::class)->slug)
         ->as('posts.')
         ->group(function () {
             Route::get('/{slug}', 'post')->name('post');
