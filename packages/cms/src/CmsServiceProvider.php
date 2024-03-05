@@ -3,6 +3,7 @@
 namespace Hup234design\Cms;
 
 use FilamentTiptapEditor\TiptapEditor;
+use Hup234design\Cms\Commands\CmsDownloadImages;
 use Hup234design\Cms\Components\AppLayout;
 use Hup234design\Cms\Commands\CreateMediaCurations;
 use Hup234design\Cms\Filament\TipTapBlocks\GalleryBlock;
@@ -19,7 +20,7 @@ class CmsServiceProvider extends PackageServiceProvider
         $package->name('cms')
             ->hasViewComponents('cms', AppLayout::class)
             ->hasViews('cms')
-            ->hasCommands(CreateMediaCurations::class);
+            ->hasCommands(CreateMediaCurations::class, CmsDownloadImages::class);
     }
 
     public function packageRegistered(): void
