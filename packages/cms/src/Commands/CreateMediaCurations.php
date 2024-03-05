@@ -39,7 +39,7 @@ class CreateMediaCurations extends Command
                 GenerateMediaCurations::execute($media->id);
                 $progressBar->advance();
             } catch (\Throwable $e) {
-                $this->error('Failed to process ID ' . $media->id);
+                $this->error("Error processing media ID {$media->id}: {$e->getMessage()}");
                 $progressBar->advance();
                 // Optionally log the exception message
                 // Log::error("Error processing media ID {$media->id}: {$e->getMessage()}");
