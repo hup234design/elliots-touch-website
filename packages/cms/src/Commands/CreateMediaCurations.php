@@ -1,6 +1,6 @@
 <?php
 
-namespace Hup234design\Cms\Console\Commands;
+namespace Hup234design\Cms\Commands;
 
 use Hup234design\Cms\Actions\GenerateMediaCurations;
 use Awcodes\Curator\Models\Media;
