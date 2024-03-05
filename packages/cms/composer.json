@@ -1,0 +1,31 @@
+{
+    "name": "hup234design/cms",
+    "require": {
+        "php": "^8.2",
+        "awcodes/filament-curator": "^3.4",
+        "awcodes/filament-tiptap-editor": "^3.0",
+        "filament/spatie-laravel-settings-plugin": "^3.2",
+        "pboivin/filament-peek": "^2.0",
+        "ryangjchandler/filament-navigation": "^1.0@beta",
+        "spatie/eloquent-sortable": "^4.2",
+        "spatie/laravel-package-tools": "^1.13.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hup234design\\Cms\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hup234design\\Cms\\CmsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
