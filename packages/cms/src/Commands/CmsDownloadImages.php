@@ -44,9 +44,9 @@ class CmsDownloadImages extends Command
 //        }
 
 
-        foreach( Media::all() as $media ) {
-            $media->update(['id' => $media->id + 100]);
-        }
+//        foreach( Media::all() as $media ) {
+//            $media->update(['id' => $media->id + 100]);
+//        }
 
 
         foreach ($this->getImages() as $image) {
