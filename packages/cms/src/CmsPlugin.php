@@ -79,6 +79,7 @@ class CmsPlugin implements Plugin
                                 'posts.index' => 'Posts',
                                 'services.index' => 'Services',
                                 'testimonials.index' => 'Testimonials',
+                                ...config('cms.index_page_routes', [])
                             ])
                     ])
                     ->itemType('Page', [

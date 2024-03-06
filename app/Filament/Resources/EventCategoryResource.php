@@ -1,26 +1,25 @@
 <?php
 
-namespace Hup234design\Cms\Filament\Resources\Sections;
+namespace App\Filament\Resources;
 
-use App\ContentBlocks\ContentBlocksBuilder;
-use Filament\Tables\Columns\TextColumn;
-use Hup234design\Cms\Filament\Forms\Schemas\TitleSlug;
-use Hup234design\Cms\Filament\Resources\Sections\SectionResource\Pages;
-use Hup234design\Cms\Filament\Resources\Sections\SectionResource\RelationManagers;
-use Hup234design\Cms\Models\Section;
+use App\Filament\Resources\EventCategoryResource\Pages;
+use App\Filament\Resources\EventCategoryResource\RelationManagers;
+use App\Models\EventCategory;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Hup234design\Cms\Filament\Forms\Schemas\TitleSlug;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class SectionResource extends Resource
+class EventCategoryResource extends Resource
 {
-    protected static ?string $model = Section::class;
+    protected static ?string $model = EventCategory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-squares-plus';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function getNavigationBadge(): ?string
     {
@@ -39,12 +38,14 @@ class SectionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('sort_order','asc')
+            ->reorderable('sort_order')
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('section_items_count')
-                    ->label('Items')
-                    ->counts('sectionItems'),
+                Tables\Columns\TextColumn::make('events_count')
+                    ->label('Events')
+                    ->counts('events'),
                 TextColumn::make('created_at')->dateTime()->label('Created'),
                 TextColumn::make('updated_at')->since()->label('Last Updated'),
             ])
@@ -53,6 +54,7 @@ class SectionResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -61,19 +63,10 @@ class SectionResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\SectionItemsRelationManager::class,
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSections::route('/'),
-            'create' => Pages\CreateSection::route('/create'),
-            'edit' => Pages\EditSection::route('/{record}/edit'),
+            'index' => Pages\ManageEventCategories::route('/'),
         ];
     }
 }

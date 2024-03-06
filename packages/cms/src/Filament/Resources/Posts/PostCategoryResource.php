@@ -2,6 +2,7 @@
 
 namespace Hup234design\Cms\Filament\Resources\Posts;
 
+use Filament\Tables\Columns\TextColumn;
 use Hup234design\Cms\Filament\Resources\Posts\PostCategoryResource\Pages;
 use Hup234design\Cms\Filament\Resources\Posts\PostCategoryResource\RelationManagers;
 use Hup234design\Cms\Models\PostCategory;
@@ -20,6 +21,11 @@ class PostCategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -32,8 +38,16 @@ class PostCategoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('sort_order','asc')
+            ->reorderable('sort_order')
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('posts_count')
+                    ->label('Posts')
+                    ->counts('posts'),
+                TextColumn::make('created_at')->dateTime()->label('Created'),
+                TextColumn::make('updated_at')->since()->label('Last Updated'),
             ])
             ->filters([
                 //

@@ -2,6 +2,7 @@
 
 namespace Hup234design\Cms\Filament\Resources\Services;
 
+use Filament\Tables\Columns\TextColumn;
 use Hup234design\Cms\Filament\Resources\Services\ServiceCategoryResource\Pages;
 use Hup234design\Cms\Filament\Resources\Services\ServiceCategoryResource\RelationManagers;
 use Hup234design\Cms\Models\ServiceCategory;
@@ -25,6 +26,11 @@ class ServiceCategoryResource extends Resource
         return app(\Hup234design\Cms\Settings\ServicesSettings::class)->enabled;
     }
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -37,8 +43,16 @@ class ServiceCategoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('sort_order','asc')
+            ->reorderable('sort_order')
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('services_count')
+                    ->label('Services')
+                    ->counts('services'),
+                TextColumn::make('created_at')->dateTime()->label('Created'),
+                TextColumn::make('updated_at')->since()->label('Last Updated'),
             ])
             ->filters([
                 //

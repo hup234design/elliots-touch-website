@@ -1,38 +1,32 @@
 <?php
 
-namespace Hup234design\Cms\Filament\Resources\Services;
+namespace App\Filament\Resources;
 
-use Awcodes\Curator\Components\Tables\CuratorColumn;
-use Filament\Tables\Columns\TextColumn;
-use FilamentTiptapEditor\Enums\TiptapOutput;
-use FilamentTiptapEditor\TiptapEditor;
-use Hup234design\Cms\Filament\Forms\Components\CmsGrid;
-use Hup234design\Cms\Filament\Forms\Fields\MediablePicker;
-use Hup234design\Cms\Filament\Forms\Schemas\ContentBlocks;
-use Hup234design\Cms\Filament\Resources\Services\ServiceResource\Pages;
-use Hup234design\Cms\Filament\Resources\Services\ServiceResource\RelationManagers;
-use Hup234design\Cms\Models\Service;
+use App\Filament\Resources\EventResource\Pages;
+use App\Filament\Resources\EventResource\RelationManagers;
+use App\Models\Event;
+use App\Models\EventCategory;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use FilamentTiptapEditor\Enums\TiptapOutput;
+use FilamentTiptapEditor\TiptapEditor;
+use Hup234design\Cms\Filament\Forms\Components\CmsGrid;
+use Hup234design\Cms\Filament\Forms\Fields\MediablePicker;
+use Hup234design\Cms\Filament\Forms\Schemas\ContentBlocks;
 use Hup234design\Cms\Filament\Forms\Schemas\TitleSlug;
-use Hup234design\Cms\Models\ServiceCategory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use RalphJSmit\Filament\SEO\SEO;
 
-class ServiceResource extends Resource
+class EventResource extends Resource
 {
-    protected static ?string $model = Service::class;
+    protected static ?string $model = Event::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
-
-    public static function shouldRegisterNavigation(): bool
-    {
-        return app(\Hup234design\Cms\Settings\ServicesSettings::class)->enabled;
-    }
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function getNavigationBadge(): ?string
     {
@@ -83,9 +77,20 @@ class ServiceResource extends Resource
                     ])
             ],[
                 Forms\Components\Section::make([
-                    Forms\Components\Select::make('service_category_id')
+                    Forms\Components\Select::make('event_category_id')
                         ->label('Category')
-                        ->options(ServiceCategory::all()->pluck('title','id')),
+                        ->options(EventCategory::all()->pluck('title','id')),
+                    Forms\Components\DatePicker::make('date')
+                        ->default(Carbon::now())
+                        ->required(),
+                    Forms\Components\TimePicker::make('start_time')
+                        ->label('Start Time')
+                        ->seconds(false)
+                        ->live(),
+                    Forms\Components\TimePicker::make('end_time')
+                        ->label('End Time')
+                        ->seconds(false)
+                        ->visible(fn(Forms\Get $get) => $get('start_time')),
                     Forms\Components\Toggle::make('is_visible')
                         ->label('Visible')
                         ->default(true)
@@ -98,16 +103,34 @@ class ServiceResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('sort_order','asc')
-            ->reorderable('sort_order')
+            ->defaultSort('date','desc')
             ->columns([
-                CuratorColumn::make('featuredImage.media')
-                    ->label('Featured Image')
-                    ->size(80),
-                TextColumn::make('title'),
-                TextColumn::make('slug'),
-                TextColumn::make('created_at')->dateTime()->label('Created'),
-                TextColumn::make('updated_at')->since()->label('Last Updated'),
+                Tables\Columns\TextColumn::make('event_category.title')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('date')
+                    ->date()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('start_time'),
+                Tables\Columns\TextColumn::make('end_time'),
+                Tables\Columns\IconColumn::make('is_visible')
+                    ->boolean(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -132,9 +155,9 @@ class ServiceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListServices::route('/'),
-            'create' => Pages\CreateService::route('/create'),
-            'edit' => Pages\EditService::route('/{record}/edit'),
+            'index' => Pages\ListEvents::route('/'),
+            'create' => Pages\CreateEvent::route('/create'),
+            'edit' => Pages\EditEvent::route('/{record}/edit'),
         ];
     }
 }

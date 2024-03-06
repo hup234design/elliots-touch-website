@@ -33,6 +33,11 @@ class PostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form->schema([
@@ -97,6 +102,7 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('published_at','desc')
             ->columns([
                 CuratorColumn::make('featuredImage.media')
                     ->label('Featured Image')

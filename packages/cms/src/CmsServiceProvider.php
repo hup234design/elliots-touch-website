@@ -26,6 +26,7 @@ class CmsServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name('cms')
+            ->hasConfigFile('cms')
             ->hasViewComponents(
                 'cms',
                 AppLayout::class, PostsLayout::class, ServicesLayout::class, MediaImageRenderer::class)
