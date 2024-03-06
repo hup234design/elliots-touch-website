@@ -7,9 +7,15 @@ use FilamentTiptapEditor\TiptapEditor;
 use Hup234design\Cms\Commands\CmsDownloadImages;
 use Hup234design\Cms\Components\AppLayout;
 use Hup234design\Cms\Commands\CreateMediaCurations;
+use Hup234design\Cms\Components\MediaImageRenderer;
+use Hup234design\Cms\Components\PostsLayout;
+use Hup234design\Cms\Components\ServicesLayout;
 use Hup234design\Cms\Filament\TipTapBlocks\GalleryBlock;
 use Hup234design\Cms\Observers\MediaObserver;
+use Hup234design\Cms\Filament\ContentBlocks\UpcomingEventsBlock;
+use Hup234design\Cms\Filament\ContentBlocks\LatestPostsBlock;
 use Illuminate\Support\Facades\App;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,7 +26,9 @@ class CmsServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name('cms')
-            ->hasViewComponents('cms', AppLayout::class)
+            ->hasViewComponents(
+                'cms',
+                AppLayout::class, PostsLayout::class, ServicesLayout::class, MediaImageRenderer::class)
             ->hasViews('cms')
             ->hasCommands(CreateMediaCurations::class, CmsDownloadImages::class);
     }
@@ -52,5 +60,8 @@ class CmsServiceProvider extends PackageServiceProvider
         $this->app->booted(function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });
+
+        Livewire::component('latest-posts-block', LatestPostsBlock::class);
+        Livewire::component('upcoming-events-block', UpcomingEventsBlock::class);
     }
 }

@@ -3,7 +3,7 @@
 namespace Hup234design\Cms\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Page;
+use Hup234design\Cms\Models\Page;
 use Awcodes\Curator\Models\Media;
 use Hup234design\Cms\Helpers\ViewResolver;
 use Hup234design\Cms\Models\Post;

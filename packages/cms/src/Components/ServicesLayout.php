@@ -2,7 +2,7 @@
 
 namespace Hup234design\Cms\Components;
 
-use App\Models\Page;
+use Hup234design\Cms\Models\Page;
 use Hup234design\Cms\Helpers\ViewResolver;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Component;

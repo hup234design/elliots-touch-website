@@ -2,7 +2,12 @@
 
 namespace Hup234design\Cms\Filament\Resources\Pages;
 
-use Hup234design\Cms\Filament\Forms\Schemas\BuilderBlocks;
+use Hup234design\Cms\Filament\ContentBlocks\LatestPostsBlock;
+use Hup234design\Cms\Filament\ContentBlocks\UpcomingEventsBlock;
+use Hup234design\Cms\Filament\Forms\Components\CmsGrid;
+use Hup234design\Cms\Filament\Forms\Fields\MediablePicker;
+use Hup234design\Cms\Filament\Forms\Schemas\ContentBlocks;
+use Hup234design\Cms\Filament\Forms\Schemas\HeaderFields;
 use Hup234design\Cms\Filament\Resources\Pages\PageResource\Pages;
 use Hup234design\Cms\Filament\Resources\Pages\PageResource\RelationManagers;
 use Hup234design\Cms\Models\Page;
@@ -20,6 +25,7 @@ use Hup234design\Cms\Filament\Forms\Schemas\TitleSlug;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
+use RalphJSmit\Filament\SEO\SEO;
 
 class PageResource extends Resource
 {
@@ -29,29 +35,60 @@ class PageResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                TitleSlug::make(static::$model)
-                    ->columnSpanFull(),
-
-                TiptapEditor::make('content')
-                    ->profile('default')
-                    ->output(TiptapOutput::Json)
-                    ->maxContentWidth('full')
-                    ->columnSpanFull(),
-
-                Forms\Components\Builder::make('content_blocks')
-                    ->columnSpanFull()
-                    ->blocks([
-                        ...BuilderBlocks::make(),
-                        //LatestPostsBlock::blockSchema(),
-                        //UpcomingEventsBlock::blockSchema(),
-                        //ListBlock::blockSchema(),
-                        //CardsBlock::blockSchema(),
+        return $form->schema([
+            CmsGrid::make([
+                Forms\Components\Tabs::make('Tabs')
+                    ->tabs([
+                        Forms\Components\Tabs\Tab::make('General')
+                            ->schema([
+                                TitleSlug::make(static::$model)
+                                    ->columnSpanFull(),
+                                TiptapEditor::make('content')
+                                    ->profile('default')
+                                    ->maxWidth('full')
+                                    ->output(TiptapOutput::Json)
+                                    ->columnSpanFull(),
+                                Forms\Components\Builder::make('content_blocks')
+                                    ->addActionLabel('Add Content Block')
+                                    ->labelBetweenItems('Insert Content Block')
+                                    ->label(false)
+                                    ->collapsible()
+                                    ->collapsed()
+                                    ->blockNumbers(false)
+                                    ->columnSpanFull()
+                                    ->blocks([
+                                        ...ContentBlocks::make(),
+                                        LatestPostsBlock::blockSchema(),
+                                        UpcomingEventsBlock::blockSchema(),
+                                    ])
+                                    ->collapsible()
+                                    ->collapsed(true),
+                            ]),
+                        Forms\Components\Tabs\Tab::make('Header')
+                            ->schema(
+                                HeaderFields::make())
+                            ->columnSpanFull(),
+                        Forms\Components\Tabs\Tab::make('SEO')
+                            ->schema([
+                                SEO::make(['title','description']),
+                                MediablePicker::make("seoImage", "seo")->columnSpanFull(),
+                            ]),
                     ])
-                    ->collapsible()
-                    ->collapsed(true),
-            ]);
+            ],[
+                Forms\Components\Section::make([
+                    Forms\Components\Toggle::make('is_home')
+                        ->label('Home Page')
+                        ->default(false)
+                        ->live()
+                        ->columnSpanFull(),
+                    Forms\Components\Toggle::make('is_visible')
+                        ->label('Visible')
+                        ->default(true)
+                        ->columnSpanFull()
+                        ->hidden(fn(Forms\Get $get) => $get('is_home')),
+                ])
+            ]),
+        ]);
     }
 
     public static function table(Table $table): Table

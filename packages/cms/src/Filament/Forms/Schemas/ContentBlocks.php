@@ -2,7 +2,7 @@
 
 namespace Hup234design\Cms\Filament\Forms\Schemas;
 
-class BuilderBlocks
+class ContentBlocks
 {
     public static function make() : array
     {

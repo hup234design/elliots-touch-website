@@ -3,7 +3,7 @@
 namespace Hup234design\Cms\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Page;
+use Hup234design\Cms\Models\Page;
 use Hup234design\Cms\Helpers\ViewResolver;
 
 class PageController extends Controller

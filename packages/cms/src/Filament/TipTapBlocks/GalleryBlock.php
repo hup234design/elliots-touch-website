@@ -9,9 +9,9 @@ use FilamentTiptapEditor\TiptapBlock;
 
 class GalleryBlock extends TiptapBlock
 {
-    public string $preview = 'cms::blocks.previews.gallery';
+    public string $preview = 'cms::tiptap-blocks.previews.gallery';
 
-    public string $rendered = 'cms::blocks.rendered.gallery';
+    public string $rendered = 'cms::tiptap-blocks.rendered.gallery';
 
     public function getFormSchema(): array
     {

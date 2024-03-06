@@ -1,6 +1,6 @@
 <?php
 
-namespace Hup234design\Cms\Filament\BuilderBlocks;
+namespace Hup234design\Cms\Filament\ContentBlocks;
 
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Tabs;
@@ -8,7 +8,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 
-class BuilderBlockTemplate
+class ContentBlockTemplate
 {
     static public function make($name, $schema=[])
     {

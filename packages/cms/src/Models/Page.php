@@ -38,7 +38,7 @@ class Page extends Model implements Sortable
         static::saved(function ($model) {
             if ($model->is_home) {
                 $model->updateQuietly(['is_visible' => true]);
-                \App\Models\Page::whereNot('id', $model->id)->where('is_home', true)->update(['is_home' => false]);
+                \Hup234design\Cms\Models\Page::whereNot('id', $model->id)->where('is_home', true)->update(['is_home' => false]);
             }
         });
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class="bg-gray-100">
+<body class="bg-white">
   <header class="bg-gray-800 py-12">
     <div class="max-w-6xl px-8 mx-auto">
     <ul class="flex space-x-12">

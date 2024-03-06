@@ -19,6 +19,8 @@ class Post extends Model
     use HasHeader;
     use HasMediables;
 
+    protected $guarded = [];
+
     protected $casts = [
         'content' => 'array',
         'content_blocks' => 'array',
