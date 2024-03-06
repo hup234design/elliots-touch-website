@@ -2,16 +2,22 @@
 
 namespace Hup234design\Cms\Models;
 
+use Hup234design\Cms\Concerns\HasHeader;
+use Hup234design\Cms\Concerns\HasMediables;
 use Hup234design\Cms\Models\PostCategory;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
 
 class Post extends Model
 {
     use SoftDeletes;
+    use HasSEO;
+    use HasHeader;
+    use HasMediables;
 
     protected $casts = [
         'content' => 'array',

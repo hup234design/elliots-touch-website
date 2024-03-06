@@ -2,9 +2,12 @@
 
 namespace Hup234design\Cms\Models;
 
+use Hup234design\Cms\Concerns\HasHeader;
+use Hup234design\Cms\Concerns\HasMediables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
@@ -12,6 +15,9 @@ class Page extends Model implements Sortable
 {
     use SortableTrait;
     use SoftDeletes;
+    use HasSEO;
+    use HasHeader;
+    use HasMediables;
 
     protected $guarded = [];
 

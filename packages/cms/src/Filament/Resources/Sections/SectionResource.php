@@ -2,6 +2,8 @@
 
 namespace Hup234design\Cms\Filament\Resources\Sections;
 
+use App\ContentBlocks\ContentBlocksBuilder;
+use Filament\Tables\Columns\TextColumn;
 use Hup234design\Cms\Filament\Forms\Schemas\TitleSlug;
 use Hup234design\Cms\Filament\Resources\Sections\SectionResource\Pages;
 use Hup234design\Cms\Filament\Resources\Sections\SectionResource\RelationManagers;
@@ -33,7 +35,13 @@ class SectionResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('section_items_count')
+                    ->label('Items')
+                    ->counts('sectionItems'),
+                TextColumn::make('created_at')->dateTime()->label('Created'),
+                TextColumn::make('updated_at')->since()->label('Last Updated'),
             ])
             ->filters([
                 //

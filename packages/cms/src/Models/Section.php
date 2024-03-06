@@ -9,7 +9,7 @@ class Section extends Model
 {
     protected $guarded = [];
 
-    public function section_items() : HasMany
+    public function sectionItems() : HasMany
     {
         return $this->hasMany(SectionItem::class);
     }
