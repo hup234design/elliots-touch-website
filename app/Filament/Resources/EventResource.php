@@ -6,6 +6,7 @@ use App\Filament\Resources\EventResource\Pages;
 use App\Filament\Resources\EventResource\RelationManagers;
 use App\Models\Event;
 use App\Models\EventCategory;
+use Awcodes\Curator\Components\Tables\CuratorColumn;
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -105,8 +106,11 @@ class EventResource extends Resource
         return $table
             ->defaultSort('date','desc')
             ->columns([
-                Tables\Columns\TextColumn::make('event_category.title')
-                    ->numeric()
+                CuratorColumn::make('featuredImage.media')
+                    ->label('Featured Image')
+                    ->size(80),
+                Tables\Columns\TextColumn::make('eventCategory.title')
+                    ->label('Category')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
