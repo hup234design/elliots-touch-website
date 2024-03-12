@@ -23,7 +23,7 @@ class ListPages extends ListRecords
     protected function getPreviewModalView(): ?string
     {
         // This corresponds to resources/views/posts/preview.blade.php
-        return 'cms::pages.page';
+        return 'pages.page';
     }
 
     protected function getPreviewModalDataRecordKey(): ?string
