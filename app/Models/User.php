@@ -52,7 +52,8 @@ class User extends Authenticatable implements FilamentUser
     {
         //return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
         return in_array($this->email, [
-            'dave@hup234design.co.uk'
+            'dave@hup234design.co.uk',
+            'laura@peocockmarketing.co.uk'
         ]);
     }
 }
