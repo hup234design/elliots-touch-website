@@ -37,12 +37,12 @@
                                 @if( $link['href'] )
                                     <a href="{{ $link['href'] }}" target="{{ $link['target'] }}" class="h-16 font-semibold rounded flex items-center  hover:text-red-700">
                                         <span>{{ $link['label'] }}</span>
-                                        <svg class="fill-current h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6h12l-6 6z"/></svg>
+{{--                                        <svg class="fill-current h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6h12l-6 6z"/></svg>--}}
                                     </a>
                                 @else
                                     <button class="h-16  font-semibold rounded flex items-center  hover:text-red-700">
                                         <span>{{ $link['label'] }}</span>
-                                        <svg class="fill-current h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6h12l-6 6z"/></svg>
+{{--                                        <svg class="fill-current h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6h12l-6 6z"/></svg>--}}
                                     </button>
                                 @endif
                                 <div class="hidden group-hover:block absolute right-0 -mr-2 z-50" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
