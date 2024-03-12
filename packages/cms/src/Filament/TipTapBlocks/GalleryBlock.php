@@ -13,6 +13,10 @@ class GalleryBlock extends TiptapBlock
 
     public string $rendered = 'cms::tiptap-blocks.rendered.gallery';
 
+    public string $width = 'xl';
+
+    public bool $slideOver = true;
+
     public function getFormSchema(): array
     {
         return [

@@ -21,7 +21,7 @@ class TestimonialResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return app(\Hup234design\Cms\Settings\TestimonialsSettings::class)->enabled;
+        return cmsSetting('testimonials_enabled', false);
     }
 
     public static function getNavigationBadge(): ?string

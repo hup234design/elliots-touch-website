@@ -1,5 +1,5 @@
-<x-cms-app-layout>
-    <div class="max-w-6xl px-8 mx-auto">
+<x-posts-layout>
+    <div class="container">
       <div class="prose max-w-none">
           <h1>{{ $post->title }}</h1>
           @if($post->content)
@@ -7,4 +7,4 @@
           @endif
       </div>
     </div>
-</x-cms-app-layout>
+</x-posts-layout>

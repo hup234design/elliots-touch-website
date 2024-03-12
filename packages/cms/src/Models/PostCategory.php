@@ -21,6 +21,11 @@ class PostCategory extends Model implements Sortable
         return $this->hasMany(Post::class);
     }
 
+    public function published_posts() : HasMany
+    {
+        return $this->hasMany(Post::class)->published();
+    }
+
     protected static function booted()
     {
         static::addGlobalScope('order', function (Builder $builder) {

@@ -58,7 +58,6 @@ class PageResource extends Resource
                                     ->labelBetweenItems('Insert Content Block')
                                     ->label(false)
                                     ->collapsible()
-                                    ->collapsed()
                                     ->blockNumbers(false)
                                     ->columnSpanFull()
                                     ->blocks([
@@ -91,6 +90,10 @@ class PageResource extends Resource
                         ->default(true)
                         ->columnSpanFull()
                         ->hidden(fn(Forms\Get $get) => $get('is_home')),
+                    Forms\Components\Toggle::make('display_title')
+                        ->label('Display Title')
+                        ->default(true)
+                        ->columnSpanFull()
                 ])
             ]),
         ]);

@@ -13,7 +13,13 @@ class ListServices extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->icon('heroicon-m-plus')
+                ->label('New Service'),
+            Actions\Action::make('Manage Categories')
+                ->icon('heroicon-m-list-bullet')
+                ->outlined(true)
+                ->url('/admin/services/service-categories')
         ];
     }
 }

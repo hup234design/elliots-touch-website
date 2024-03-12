@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::controller(\App\Http\Controllers\EventController::class)
+    ->prefix(cmsSetting('events_slug', 'events'))
+    ->as('events.')
+    ->group(function () {
+        Route::get('/{slug}', 'event')->name('event');
+        Route::get('/', 'index')->name('index');
+    });

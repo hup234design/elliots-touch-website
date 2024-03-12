@@ -21,10 +21,7 @@ class ServiceCategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return app(\Hup234design\Cms\Settings\ServicesSettings::class)->enabled;
-    }
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function getNavigationBadge(): ?string
     {

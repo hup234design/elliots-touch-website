@@ -8,18 +8,16 @@ use Filament\Navigation\MenuItem;
 use Filament\Panel;
 use Filament\Contracts\Plugin;
 use Hup234design\Cms\Filament\Navigation\CustomFilamentNavigation;
-use Hup234design\Cms\Filament\Pages\ManageGeneralSettings;
-use Hup234design\Cms\Filament\Pages\ManagePostsSettings;
-use Hup234design\Cms\Filament\Pages\ManageServicesSettings;
-use Hup234design\Cms\Filament\Pages\ManageSocialNetworksSettings;
-use Hup234design\Cms\Filament\Pages\ManageTestimonialsSettings;
+use Hup234design\Cms\Filament\Pages\ManageSettings;
 use Hup234design\Cms\Filament\Resources\Pages\PageResource;
 use Hup234design\Cms\Filament\Resources\Posts\PostCategoryResource;
 use Hup234design\Cms\Filament\Resources\Posts\PostResource;
 use Hup234design\Cms\Filament\Resources\Sections\SectionResource;
 use Hup234design\Cms\Filament\Resources\Services\ServiceCategoryResource;
 use Hup234design\Cms\Filament\Resources\Services\ServiceResource;
+use Hup234design\Cms\Filament\Resources\Sliders\SliderResource;
 use Hup234design\Cms\Filament\Resources\Testimonials\TestimonialResource;
+use Hup234design\Cms\Filament\Resources\Users\UserResource;
 use Hup234design\Cms\Models\Page;
 use Illuminate\Support\Facades\Schema;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
@@ -49,13 +47,11 @@ class CmsPlugin implements Plugin
                 ServiceResource::class,
                 TestimonialResource::class,
                 SectionResource::class,
+                SliderResource::class,
+                UserResource::class,
             ])
             ->pages([
-                ManageGeneralSettings::class,
-                ManagePostsSettings::class,
-                ManageServicesSettings::class,
-                ManageSocialNetworksSettings::class,
-                ManageTestimonialsSettings::class,
+                ManageSettings::class,
             ])
             ->sidebarCollapsibleOnDesktop()
             ->maxContentWidth('full')

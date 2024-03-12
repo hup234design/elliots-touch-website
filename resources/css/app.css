@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 
+.container {
+    @apply max-w-7xl mx-auto;
+}
 a[data-as-button="true"] {
     background-color: theme("colors.gray.900");
     color: white !important;

@@ -24,7 +24,8 @@ class Page extends Model implements Sortable
     protected $casts = [
         'content' => 'array',
         'content_blocks' => 'array',
-        'is_visible' => 'boolean'
+        'is_visible' => 'boolean',
+        'display_title' => 'boolean'
     ];
 
     public function scopeVisible($query)

@@ -31,7 +31,7 @@ class ServiceResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return app(\Hup234design\Cms\Settings\ServicesSettings::class)->enabled;
+        return cmsSetting('services_enabled', false);
     }
 
     public static function getNavigationBadge(): ?string

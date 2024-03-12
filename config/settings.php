@@ -12,6 +12,7 @@ return [
         \Hup234design\Cms\Settings\ServicesSettings::class,
         \Hup234design\Cms\Settings\SocialNetworksSettings::class,
         \Hup234design\Cms\Settings\TestimonialsSettings::class,
+        \App\Settings\EventsSettings::class,
     ],
 
     /*
