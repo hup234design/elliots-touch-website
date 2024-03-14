@@ -6,6 +6,7 @@
     <meta name="csrf_token" value="{{ csrf_token() }}"/>
     <title>{{ config('app.name', 'Laravel') }}</title>
     @googlefonts
+    @googlefonts('gloria-hallelujah')
     @vite(['resources/css/app.css','resources/js/app.js'])
     @livewireStyles
 </head>

@@ -4,8 +4,8 @@
 
 
         <!-- Heading -->
-        <div class="mx-auto text-center">
-            <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
+        <div class="mx-auto text-center mb-16">
+            <h2 class="mb-4 text-6xl font-heading text-blue-900 tracking-tight">
                 {{ $this->data['header_title'] }}
             </h2>
             <h3
@@ -53,7 +53,7 @@
                             class="absolute inset-0 scale-0 rounded bg-et-light-skyblue/50 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-et-light-skyblue dark:bg-gray-800 dark:group-active:bg-blue-600 dark:group-active:bg-opacity-25"
                         ></div>
                         <div class="relative">
-                            <div class="aspect-square aspect-w-4 block bg-et-crimson">
+                            <div class="aspect-video aspect-w-4 block bg-et-crimson">
                                 @if( $event->featuredImage )
                                     <x-media-image-renderer
                                         :media="$event->featuredImage->media_id"
@@ -69,10 +69,12 @@
                                 </span>
                             </p>
                             <h4
-                                class="mb-2 text-lg font-bold leading-6 text-gray-800 dark:text-gray-200"
+                                class="mb-2 text-xl font-semibold leading-6 text-gray-500 dark:text-gray-200"
                             >
                                 {{ $event->title }}
                             </h4>
+
+                            <p>{!! nl2br($event->summary) !!}</p>
                         </div>
                     </a>
                 @endforeach

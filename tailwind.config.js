@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-
+const defaultTheme = require('tailwindcss/defaultTheme')
 import colors from 'tailwindcss/colors'
 
 export default {
@@ -12,6 +12,10 @@ export default {
   ],
   theme: {
     extend: {
+        fontFamily: {
+            sans:    ['Inter', ...defaultTheme.fontFamily.sans],
+            heading: ['Gloria Hallelujah', ...defaultTheme.fontFamily.sans],
+        },
       colors: {
               'et-skyblue': '#24bff8',
               'et-light-skyblue': '#d3f2fd', // Adjusted lighter version of et-skyblue
