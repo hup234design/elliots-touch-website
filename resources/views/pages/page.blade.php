@@ -8,5 +8,5 @@
       </div>
     </div>
 
-    <x-cms::content-blocks :blocks="$page->content_blocks" />
+    <x-content-blocks :blocks="$page->content_blocks" />
 </x-app-layout>

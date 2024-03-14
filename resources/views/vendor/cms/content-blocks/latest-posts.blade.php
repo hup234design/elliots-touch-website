@@ -30,7 +30,7 @@
         @foreach($posts as $post)
             <div class="group relative pb-40 overflow-hidden">
                 <div class="aspect-square overflow-hidden bg-et-skyblue">
-                    <x-cms-media-image-renderer
+                    <x-media-image-renderer
                         :media="$post->featuredImage?->media_id"
                         :curation="$post->featuredImage?->curation"
                         preset="thumbnail"

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(\App\Http\Controllers\EventController::class)
+Route::controller(EventController::class)
     ->prefix(cmsSetting('events_slug', 'events'))
     ->as('events.')
     ->group(function () {
         Route::get('/{slug}', 'event')->name('event');
         Route::get('/', 'index')->name('index');
+    });
+
+Route::controller(PostController::class)
+    ->prefix(cmsSetting('posts_slug', 'posts'))
+    ->as('posts.')
+    ->group(function () {
+        Route::get('/{slug}', 'post')->name('post');
+        Route::get('/', 'index')->name('index');
+    });
+
+Route::controller(PageController::class)
+    ->as('pages.')
+    ->group(function () {
+        Route::get('/{slug}', 'page')->name('page');
+        Route::get('/', 'home')->name('home');
     });

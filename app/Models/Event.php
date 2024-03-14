@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Hup234design\Cms\Concerns\HasHeader;
-use Hup234design\Cms\Concerns\HasMediables;
+use App\Concerns\HasHeader;
+use App\Concerns\HasMediables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

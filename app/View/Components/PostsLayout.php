@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Closure;
-use Hup234design\Cms\Models\Post;
-use Hup234design\Cms\Models\PostCategory;
+use App\Models\Post;
+use App\Models\PostCategory;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 

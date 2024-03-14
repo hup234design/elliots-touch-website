@@ -2,7 +2,7 @@
 @tailwind components;
 
 .container {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
 }
 a[data-as-button="true"] {
     background-color: theme("colors.gray.900");

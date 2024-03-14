@@ -25,7 +25,7 @@
         @foreach($events as $event)
             <div class="relative group bg-gray-50 flex flex-col bg-white pb-8">
                 <div class="aspect-video  overflow-hidden bg-et-skyblue">
-                    <x-cms-media-image-renderer
+                    <x-media-image-renderer
                         :media="$event->featuredImage?->media"
                         :curation="$event->featuredImage?->media_curation"
                         preset="thumbnail"
@@ -52,7 +52,7 @@
             </div>
 {{--            <div>--}}
 {{--                <div class="relative h-64 mb-6">--}}
-{{--                    <x-cms-media-image-renderer--}}
+{{--                    <x-media-image-renderer--}}
 {{--                        :media="$event->featured_image?->media"--}}
 {{--                        :curation="$event->featured_image?->media_curation"--}}
 {{--                        preset="thumbnail"--}}

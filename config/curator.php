@@ -20,9 +20,9 @@ return [
         'avif',
     ],
     'curation_presets' => [
-        \Hup234design\Cms\Filament\Curator\Curations\ThumbnailPreset::class,
-        \Hup234design\Cms\Filament\Curator\Curations\HeaderPreset::class,
-        \Hup234design\Cms\Filament\Curator\Curations\SeoPreset::class,
+        \App\Filament\Curator\Curations\ThumbnailPreset::class,
+        \App\Filament\Curator\Curations\HeaderPreset::class,
+        \App\Filament\Curator\Curations\SeoPreset::class,
     ],
     'directory' => 'media',
     'disk' => env('FILAMENT_FILESYSTEM_DISK', 'public'),

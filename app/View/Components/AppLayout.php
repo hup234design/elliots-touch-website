@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
+use App\Filament\Support\NavigationMenuItems;
 use App\Models\Event;
 use Closure;
-use Hup234design\Cms\Helpers\NavigationMenuItems;
-use Hup234design\Cms\Models\Post;
+use App\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use RyanChandler\FilamentNavigation\Models\Navigation;

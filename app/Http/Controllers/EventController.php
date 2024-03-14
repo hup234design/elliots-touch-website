@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use Awcodes\Curator\Models\Media;
-use App\Settings\EventsSettings;
 use Illuminate\Http\Request;
 use Laravel\Prompts\Concerns\Events;
 
 class EventController extends Controller
 {
-    public function index(EventsSettings $settings)
+    public function index()
     {
-        $events = Event::paginate($settings->per_page);
+        $events = Event::paginate(5);
         return view('events.index', [
             'events' => $events,
-            'title' => $settings->title,
-            'content' => $settings->content,
-            'headerImage' => $settings->header_image_id ? Media::find($settings->header_image_id) : null,
+            'title' => cmsSetting('events_title', 'Events'),
+            'content' => null,
+            'headerImage' => null,
         ]);
     }
 
