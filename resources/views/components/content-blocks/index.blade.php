@@ -1,7 +1,7 @@
 @props(['blocks' => []])
 
 @if( count($blocks) > 0 )
-    <div class="mt-20">
+    <div class="mt-20 space-y-20">
         @foreach($blocks as $block)
             <x-content-blocks.wrapper
                 :style="$block['data']['block_style'] ?? 'default'"
