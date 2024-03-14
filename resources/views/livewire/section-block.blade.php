@@ -65,9 +65,9 @@
                             <h3 class="mb-2 text-lg font-semibold text-gray-700">
                                 {{ $sectionItem->subtitle }}
                             </h3>
-                            <p>
-                                {!! nl2br($sectionItem->summary) !!}
-                            </p>
+                            @if($sectionItem->summary)
+                                {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
+                            @endif
                         </div>
                         <!-- END Card Body -->
 
@@ -116,9 +116,9 @@
 {{--                                >--}}
 {{--                                on <span class="font-medium">March 3, 2023</span> · 12 min read--}}
 {{--                            </p>--}}
-                            <p class="leading-relaxed text-gray-600 dark:text-gray-400">
-                                {!! nl2br($sectionItem->summary)  !!}
-                            </p>
+                            @if($sectionItem->summary)
+                                {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
+                            @endif
                         </div>
                     </div>
                 @endforeach
