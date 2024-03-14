@@ -28,6 +28,8 @@ class SectionItemsRelationManager extends RelationManager
                     ->maxLength(255),
                 Forms\Components\TextInput::make('subtitle')
                     ->maxLength(255),
+                Forms\Components\Textarea::make('summary')
+                    ->rows(3),
                 TiptapEditor::make('content')
                     ->profile('simple')
                     ->maxWidth('full')
