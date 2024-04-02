@@ -112,7 +112,6 @@
         </div>
     </div>
     <!-- END Page Header Section: Simple with Cover -->
-
 @show
 
 {{ $slot }}

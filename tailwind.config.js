@@ -17,6 +17,20 @@ export default {
             heading: ['Gloria Hallelujah', ...defaultTheme.fontFamily.sans],
         },
       colors: {
+          'skyblue': {
+              DEFAULT: '#24BFF8',
+              50: '#D6F3FE',
+              100: '#C2EDFD',
+              200: '#9BE2FC',
+              300: '#73D6FB',
+              400: '#4CCBF9',
+              500: '#24BFF8',
+              600: '#07A3DD',
+              700: '#057BA6',
+              800: '#045370',
+              900: '#022B3A',
+              950: '#01171F'
+          },
               'et-skyblue': '#24bff8',
               'et-light-skyblue': '#d3f2fd', // Adjusted lighter version of et-skyblue
               'et-dark-skyblue': '#1a8cb7', // Adjusted darker version of et-skyblue

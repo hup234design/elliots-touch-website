@@ -1,14 +1,10 @@
 <x-posts-layout>
-    <div class="container">
-        @if($headerImage)
-            <div class="-mt-12 w-full h-64 mb-12">
-            <x-curator-glider
-                class="object-cover object-center w-full h-full"
-                :media="$headerImage"
-            />
-            </div>
-        @endif
 
+    @section('page-header')
+        <x-page-header :title="cmsSetting('posts_title')" />
+    @endsection
+
+    <div class="container">
       <div class="prose max-w-none">
           @if($content)
               {!! tiptap_converter()->asHTML($content) !!}

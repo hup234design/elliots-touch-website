@@ -1,11 +1,12 @@
 @props([
     'title'   => null,
     'text'    => "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua",
-    'eyebrow' => "Get the help you need"
+    'eyebrow' => "Get the help you need",
+    'blocks'  => []
 ])
 
 @section('page-header')
-<div class="bg-et-dark-blue py-8">
+<div class="bg-skyblue py-12 mb-16">
     <div class="mx-auto max-w-2xl text-center">
 {{--        @if($eyebrow)--}}
 {{--            <p class="mb-2 text-base font-bold leading-7 text-gray-200 uppercase">--}}

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Forms\Schemas;
 
+use Awcodes\PresetColorPicker\PresetColorPicker;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;

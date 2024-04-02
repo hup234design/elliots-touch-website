@@ -1,10 +1,20 @@
 <x-app-layout>
+
+    @section('page-header')
+        <x-page-header :title="$page->title" :blocks="$page->header_blocks" />
+    @endsection
+
     <div class="container">
+
       <div class="prose max-w-none">
-        <h1>{{ $page->title }}</h1>
-        @if($page->content)
-          {!! tiptap_converter()->asHTML($page->content) !!}
-        @endif
+
+          @if( count($page->header_blocks ?? []) > 0)
+              <h1>{{ $page->title }}</h1>
+          @endif
+
+          @if($page->content)
+            {!! tiptap_converter()->asHTML($page->content) !!}
+          @endif
       </div>
     </div>
 

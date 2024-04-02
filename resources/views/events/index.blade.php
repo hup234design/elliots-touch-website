@@ -1,21 +1,26 @@
 <x-events-layout>
+
+    @section('page-header')
+        <x-page-header :title="cmsSetting('events_title')" />
+    @endsection
+
     <div class="container">
-        @if($headerImage)
-            <div class="-mt-12 w-full h-64 mb-12">
-            <x-curator-glider
-                class="object-cover object-center w-full h-full"
-                :media="$headerImage"
-            />
-            </div>
-        @endif
+{{--        @if($headerImage)--}}
+{{--            <div class="-mt-12 w-full h-64 mb-12">--}}
+{{--            <x-curator-glider--}}
+{{--                class="object-cover object-center w-full h-full"--}}
+{{--                :media="$headerImage"--}}
+{{--            />--}}
+{{--            </div>--}}
+{{--        @endif--}}
 
       <div class="prose max-w-none">
-          <h1>{{ $title }}</h1>
+{{--          <h1>{{ $title }}</h1>--}}
           @if($content)
               {!! tiptap_converter()->asHTML($content) !!}
           @endif
       </div>
-        <div class="mt-12 space-y-8">
+        <div class="space-y-8">
             @foreach( $events as $event )
                 <div class="prose max-w-none">
                     <h3>{{ $event->title }}</h3>
