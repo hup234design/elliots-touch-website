@@ -9,19 +9,20 @@ use App\Filament\Forms\Fields\MediablePicker;
 
 class HeaderFields
 {
-    public static function make(): array
+    public static function make($home=false): array
     {
         return [
             Group::make()
                 ->relationship('header')
                 ->schema([
-                    TextInput::make('eyebrow'),
-                    TextInput::make('heading'),
-                    Textarea::make('text')
-                        ->rows(3),
+                    //TextInput::make('eyebrow')
+                    //    ->hidden($home),
+                    //TextInput::make('heading'),
+                    //Textarea::make('text')
+                    //    ->rows(3),
                 ]),
-            MediablePicker::make("headerImage", "header")
-                ->columnSpanFull(),
+            //MediablePicker::make("headerImage", "header")
+            //    ->columnSpanFull(),
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Filament\Support\Settings;
 use Filament\Forms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use FilamentTiptapEditor\TiptapEditor;
 use RyanChandler\FilamentNavigation\Filament\Fields\NavigationSelect;
 
 class ManageSettings extends Page

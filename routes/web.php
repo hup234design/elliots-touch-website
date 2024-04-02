@@ -35,6 +35,7 @@ Route::controller(PostController::class)
 Route::controller(PageController::class)
     ->as('pages.')
     ->group(function () {
+        Route::get('/{pageSlug}/{slug}', 'subpage')->name('subpage');
         Route::get('/{slug}', 'page')->name('page');
         Route::get('/', 'home')->name('home');
     });

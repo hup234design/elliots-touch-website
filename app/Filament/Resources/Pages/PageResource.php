@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Pages;
 
+use App\Filament\Resources\PageResource\RelationManagers\SubPagesRelationManager;
 use App\Livewire\LatestPostsBlock;
 use App\Livewire\UpcomingEventsBlock;
 use App\Filament\Forms\Components\CmsGrid;
@@ -23,6 +24,7 @@ use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use App\Filament\Forms\Schemas\TitleSlug;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 use RalphJSmit\Filament\SEO\SEO;
@@ -71,7 +73,10 @@ class PageResource extends Resource
                             ]),
                         Forms\Components\Tabs\Tab::make('Header')
                             ->schema(
-                                HeaderFields::make())
+                                fn(Forms\Get $get) => $get('is_home')
+                                    ? HeaderFields::make(true)
+                                    : HeaderFields::make(false)
+                            )
                             ->columnSpanFull(),
                         Forms\Components\Tabs\Tab::make('SEO')
                             ->schema([
@@ -107,6 +112,7 @@ class PageResource extends Resource
                 TextColumn::make('id')->label('ID'),
                 TextColumn::make('title'),
                 TextColumn::make('slug'),
+                TextColumn::make('sub_pages_count')->counts('subPages'),
                 TextColumn::make('created_at')->dateTime()->label('Created'),
                 TextColumn::make('updated_at')->since()->label('Last Updated'),
             ])
@@ -128,7 +134,7 @@ class PageResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            SubPagesRelationManager::class
         ];
     }
 

@@ -15,7 +15,7 @@ class Headerable extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'links' => 'array'
+        'header_blocks' => 'array',
     ];
 
     public function headerable(): MorphTo

@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('headerables', function (Blueprint $table) {
             $table->id();
             $table->morphs('headerable');
-            $table->string('eyebrow')->nullable();
-            $table->string('heading')->nullable();
-            $table->text('text')->nullable();
-            $table->json('links')->nullable();
             $table->timestamps();
         });
     }

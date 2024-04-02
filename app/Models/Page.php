@@ -6,6 +6,7 @@ use App\Concerns\HasHeader;
 use App\Concerns\HasMediables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use Spatie\EloquentSortable\Sortable;
@@ -31,6 +32,11 @@ class Page extends Model implements Sortable
     public function scopeVisible($query)
     {
         return $query->where('is_visible', true);
+    }
+
+    public function subPages() : HasMany
+    {
+        return $this->hasMany(SubPage::class);
     }
 
     protected static function booted()
