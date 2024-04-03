@@ -6,6 +6,7 @@ use App\Livewire\EditorBlock;
 use App\Livewire\GalleryBlock;
 use App\Livewire\ImageBlock;
 use App\Livewire\SectionBlock;
+use App\Livewire\TeamMembersBlock;
 use App\Livewire\TestimonialsBlock;
 use App\Livewire\VideoBlock;
 
@@ -26,6 +27,7 @@ class ContentBlocks
             SectionBlock::blockSchema(),
             TestimonialsBlock::blockSchema(),
             ImageBlock::blockSchema(),
+            TeamMembersBlock::blockSchema(),
             // other statically defined blocks can go here
         ], $customBlocks);
     }
