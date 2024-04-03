@@ -16,7 +16,16 @@ class ListPages extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->icon('heroicon-m-plus'),
+            Actions\Action::make('Home Page')
+                ->icon('heroicon-m-home')
+                ->outlined(true)
+                ->url('/admin/pages/pages/home'),
+            Actions\Action::make('Contact Page')
+                ->icon('heroicon-m-envelope')
+                ->outlined(true)
+                ->url('/admin/pages/pages/contact')
         ];
     }
 

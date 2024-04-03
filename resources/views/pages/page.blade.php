@@ -1,7 +1,7 @@
 <x-app-layout>
 
     @section('page-header')
-        <x-page-header :title="$page->title" :blocks="$page->header_blocks" />
+        <x-page-header :title="$page->title" :blocks="$page->header?->header_blocks" />
     @endsection
 
     <div class="container">

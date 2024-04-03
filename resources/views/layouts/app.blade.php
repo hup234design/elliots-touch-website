@@ -82,36 +82,6 @@
 </header>
 
 @section('page-header')
-    <!-- Page Header Section: Simple with Cover -->
-    <div
-        class="bg-cover bg-bottom mb-16"
-        style="
-    background-image: url(&quot;https://cdn.tailkit.com/media/placeholders/photo-Nyvq2juw4_o-1280x400.jpg&quot;);
-  "
-    >
-        <div class="bg-white bg-opacity-90 dark:bg-gray-900/90 dark:text-gray-100">
-            <div
-                class="container mx-auto space-y-16 px-4 py-12 lg:px-8 lg:py-16 xl:max-w-7xl"
-            >
-                <div class="text-center">
-                    <div
-                        class="mb-1 text-sm font-bold uppercase tracking-wider text-et-crimson dark:text-blue-500"
-                    >
-                        Lorem ipsum
-                    </div>
-                    <h2 class="mb-4 text-4xl font-black text-black dark:text-white">
-                        Ut Enim Ad Minim Veniam
-                    </h2>
-                    <h3
-                        class="mx-auto text-xl font-medium leading-relaxed text-gray-700 dark:text-gray-300 lg:w-2/3"
-                    >
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Page Header Section: Simple with Cover -->
 @show
 
 {{ $slot }}

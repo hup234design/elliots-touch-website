@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Pages;
 
-use App\Filament\Resources\PageResource\RelationManagers\SubPagesRelationManager;
 use App\Livewire\LatestPostsBlock;
 use App\Livewire\UpcomingEventsBlock;
 use App\Filament\Forms\Components\CmsGrid;
@@ -112,7 +111,6 @@ class PageResource extends Resource
                 TextColumn::make('id')->label('ID'),
                 TextColumn::make('title'),
                 TextColumn::make('slug'),
-                TextColumn::make('sub_pages_count')->counts('subPages'),
                 TextColumn::make('created_at')->dateTime()->label('Created'),
                 TextColumn::make('updated_at')->since()->label('Last Updated'),
             ])
@@ -134,7 +132,7 @@ class PageResource extends Resource
     public static function getRelations(): array
     {
         return [
-            SubPagesRelationManager::class
+            //
         ];
     }
 
@@ -144,6 +142,7 @@ class PageResource extends Resource
             'index' => Pages\ListPages::route('/'),
             'create' => Pages\CreatePage::route('/create'),
             'edit' => Pages\EditPage::route('/{record}/edit'),
+            'home' => Pages\EditHomePage::route('/home'),
         ];
     }
 }

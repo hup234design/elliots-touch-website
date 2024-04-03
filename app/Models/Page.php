@@ -34,11 +34,6 @@ class Page extends Model implements Sortable
         return $query->where('is_visible', true);
     }
 
-    public function subPages() : HasMany
-    {
-        return $this->hasMany(SubPage::class);
-    }
-
     protected static function booted()
     {
         // when saved update home page flag on all other pages

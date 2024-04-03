@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\HomePage;
 use App\Models\Page;
-use App\Models\SubPage;
+use App\Models\Post;
 
 class PageController extends Controller
 {
     public function home()
     {
-        $page = Page::where('is_home', true)->firstOrFail();
+        $page = HomePage::firstOrFail();
 
-        return view('pages.home', compact('page'));
+        return view('pages.home', [
+            'page' => $page,
+            'events' => Event::upcoming()->visible()->take(3)->get(),
+            'posts' => Post::visible()->take(3)->get()
+        ]);
     }
 
     public function page($slug)
@@ -19,13 +25,5 @@ class PageController extends Controller
         $page = Page::whereSlug($slug)->firstOrFail();
 
         return view('pages.page', compact('page'));
-    }
-
-    public function subPage($pageSlug, $slug)
-    {
-        $page = Page::whereSlug($pageSlug)->firstOrFail();
-        $subPage = SubPage::whereSlug($slug)->firstOrFail();
-
-        return view('pages.sub-page', compact('page','subPage'));
     }
 }

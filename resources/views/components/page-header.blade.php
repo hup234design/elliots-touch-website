@@ -6,21 +6,27 @@
 ])
 
 @section('page-header')
-<div class="bg-skyblue py-12 mb-16">
-    <div class="mx-auto max-w-2xl text-center">
-{{--        @if($eyebrow)--}}
-{{--            <p class="mb-2 text-base font-bold leading-7 text-gray-200 uppercase">--}}
-{{--                {{ $eyebrow }}--}}
-{{--            </p>--}}
-{{--        @endif--}}
-        <h2 class="text-4xl font-bold tracking-tight text-gray-50 sm:text-5xl">
-            {{ $title }}
-        </h2>
-{{--        @if($text)--}}
-{{--            <p class="mt-6 text-lg font-medium leading-8 text-gray-100">--}}
-{{--                {{ $text }}--}}
-{{--            </p>--}}
-{{--        @endif--}}
-    </div>
-</div>
+    @if( count($blocks) > 0 )
+        @foreach($blocks as $block)
+            @livewire($block['type'].'-block', ['data' => $block['data']])
+        @endforeach
+    @else
+        <div class="bg-skyblue py-12 mb-16">
+            <div class="mx-auto max-w-2xl text-center">
+                {{--        @if($eyebrow)--}}
+                {{--            <p class="mb-2 text-base font-bold leading-7 text-gray-200 uppercase">--}}
+                {{--                {{ $eyebrow }}--}}
+                {{--            </p>--}}
+                {{--        @endif--}}
+                <h2 class="text-4xl font-bold tracking-tight text-gray-50 sm:text-5xl">
+                    {{ $title }}
+                </h2>
+                {{--        @if($text)--}}
+                {{--            <p class="mt-6 text-lg font-medium leading-8 text-gray-100">--}}
+                {{--                {{ $text }}--}}
+                {{--            </p>--}}
+                {{--        @endif--}}
+            </div>
+        </div>
+    @endif
 @endsection
