@@ -15,7 +15,7 @@
 
         <div class="bg-white dark:bg-gray-900 dark:text-gray-100">
             <div class="">
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-24">
                     @foreach($team_members as $team_member)
                         <div class="group relative block">
                         <div
@@ -38,10 +38,11 @@
 
                             <p>{!! nl2br($team_member->bio) !!}</p>
                         </div>
-                    </a>
+                    </div>
                     @endforeach
                 </div>
                 <!-- END Latest Posts -->
+            </div>
             </div>
         </div>
         <!-- END Blog List Section: In Grid Alternate -->

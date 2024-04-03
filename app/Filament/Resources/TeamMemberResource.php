@@ -41,7 +41,8 @@ class TeamMemberResource extends Resource
                 CuratorPicker::make('media_id')
                     ->label('Profile Picture'),
                 Forms\Components\Toggle::make('is_visible')
-                    ->required(),
+                    ->required()
+                    ->default(true),
             ]);
     }
 
@@ -58,8 +59,7 @@ class TeamMemberResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('role')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('is_visible')
-                    ->boolean(),
+                Tables\Columns\ToggleColumn::make('is_visible'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
