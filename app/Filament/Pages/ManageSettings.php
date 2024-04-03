@@ -46,6 +46,7 @@ class ManageSettings extends Page
             "social_pinterest" => null,
             "social_youtube" => null,
             "social_tiktok" => null,
+            'donation_link' => null
         ];
 
         foreach ($requiredKeys as $key=>$value) {
@@ -69,6 +70,9 @@ class ManageSettings extends Page
                                     Forms\Components\TextInput::make('state.site_name')
                                         ->label('Site Name')
                                         ->required(),
+                                    Forms\Components\TextInput::make('state.donation_link')
+                                        ->label('Donation Link')
+                                        ->url(),
                                 ])
                         ]),
                     Forms\Components\Tabs\Tab::make('Events')

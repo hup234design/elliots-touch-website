@@ -1,5 +1,5 @@
-@props(['size' => 'md', 'colour' => 'skyblue', 'text'])
-<button
+@props(['size' => 'md', 'colour' => 'skyblue', 'text', 'tag' => 'button', 'href' => null])
+<{{ $tag }}
     type="button"
     @class([
         "rounded-full font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
@@ -11,6 +11,7 @@
         "px-5 py-2.5 text-lg" => $size == 'lg',
         "px-6 py-3 text-xl"   => $size == 'xl',
     ])
+    @if($href) href="{{ $href }}" target="_blank" @endif
 >
     <span class="whitespace-nowrap">{{ $text }}</span>
-</button>
+</{{ $tag }}>

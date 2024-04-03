@@ -16,15 +16,50 @@
 
     <div class="mt-4 max-w-7xl mx-auto px-8 flex justify-between items-center">
         <div class="flex-1 flex gap-4">
-            <x-si-facebook class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
-            <x-si-twitter class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson"/>
-            <x-si-instagram class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson"/>
+            @if(cmsSetting('social_facebook'))
+                <a href="{{ cmsSetting('social_facebook') }}" target="_blank">
+                    <x-si-facebook class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                </a>
+            @endif
+
+                @if(cmsSetting('social_twitter'))
+                    <a href="{{ cmsSetting('social_twitter') }}" target="_blank">
+                        <x-si-twitter class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                    </a>
+                @endif
+                @if(cmsSetting('social_linkedin'))
+                    <a href="{{ cmsSetting('social_linkedin') }}" target="_blank">
+                        <x-si-linkedin class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                    </a>
+                @endif
+                @if(cmsSetting('social_instagram'))
+                    <a href="{{ cmsSetting('social_instagram') }}" target="_blank">
+                        <x-si-instagram class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                    </a>
+                @endif
+                @if(cmsSetting('social_pinterest'))
+                    <a href="{{ cmsSetting('social_pinterest') }}" target="_blank">
+                        <x-si-pinterest class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                    </a>
+                @endif
+                @if(cmsSetting('social_youtube'))
+                    <a href="{{ cmsSetting('social_youtube') }}" target="_blank">
+                        <x-si-youtube class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                    </a>
+                @endif
+                @if(cmsSetting('social_tiktok'))
+                    <a href="{{ cmsSetting('social_tiktok') }}" target="_blank">
+                        <x-si-tiktok class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                    </a>
+                @endif
         </div>
         <div>
             <img src="{{ asset('logos/logo-transparent.png') }}" alt="Logo" class="max-h-20 w-auto">
         </div>
         <div class="flex-1 text-right">
-            <x-button.primary text="Donate Now"  size="lg" colour="skyblue"  />
+            @if(cmsSetting('donation_link'))
+                <x-button.primary text="Donate Now"  size="lg" colour="skyblue" tag="a" href="{{ cmsSetting('donation_link') }}" />
+            @endif
         </div>
     </div>
     <div class="container">
