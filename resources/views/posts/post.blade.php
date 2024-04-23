@@ -10,7 +10,7 @@
           <h1 class="text-et-navy">{{ $post->title }}</h1>
 
           <p class="-mt-4 flex items-center gap-x-4">
-              <time datetime="2020-03-16" class="text-gray-700">
+              <time datetime="{{ $post->published_at->format('Y-m-d') }}" class="text-gray-700">
                   {{ $post->published_at->format('j F Y') }}
               </time>
               @if($category = $post->postCategory)
