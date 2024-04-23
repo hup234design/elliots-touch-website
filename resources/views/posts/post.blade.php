@@ -9,7 +9,7 @@
 
           <h1>{{ $post->title }}</h1>
 
-          <p class="flex items-center gap-x-4">
+          <p class="-mt-2 flex items-center gap-x-4">
               <time datetime="2020-03-16" class="text-gray-700">
                   {{ $post->published_at->format('j F Y') }}
               </time>
