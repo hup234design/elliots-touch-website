@@ -53,11 +53,11 @@
                             class="absolute inset-0 scale-0 rounded bg-et-light-skyblue/50 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-et-light-skyblue dark:bg-gray-800 dark:group-active:bg-blue-600 dark:group-active:bg-opacity-25"
                         ></div>
                         <div class="relative">
-                            <div class="aspect-video aspect-w-4 block bg-et-crimson">
+                            <div class="aspect-video aspect-w-4 block bg-et-crimson rounded-2xl overflow-hidden">
                                 @if( $post->featuredImage )
                                     <x-media-image-renderer
                                         :media="$post->featuredImage->media_id"
-                                        imgClass="object-cover object-center h-full w-full"
+                                        imgClass="object-cover object-center h-full w-full rounded-2xl"
                                     />
                                @endif
                             </div>

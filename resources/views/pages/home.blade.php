@@ -101,28 +101,30 @@
                                 class="absolute inset-0 scale-0 rounded bg-et-light-skyblue/50 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-et-light-skyblue dark:bg-gray-800 dark:group-active:bg-blue-600 dark:group-active:bg-opacity-25"
                             ></div>
                             <div class="relative">
-                                <div class="aspect-video aspect-w-4 block bg-et-crimson">
+                                <div class="aspect-video aspect-w-4 block bg-et-crimson rounded-3xl overflow-hidden">
                                     @if( $event->featuredImage )
                                         <x-media-image-renderer
                                             :media="$event->featuredImage->media_id"
-                                            imgClass="object-cover object-center h-full w-full"
+                                            imgClass="object-cover object-center h-full w-full rounded-3xl"
                                         />
                                     @endif
                                 </div>
+                                <div class="px-4">
                                 <p
-                                    class="mb-1 mt-3 text-sm font-medium text-gray-600 dark:text-gray-400"
+                                    class="mb-2 mt-4 text-sm font-medium text-gray-600 dark:text-gray-400"
                                 >
                                 <span class="font-medium">
-                                    {{ $event->date }}
+                                    {{ $event->date->format('j F Y') }}
                                 </span>
                                 </p>
                                 <h4
-                                    class="mb-2 text-xl font-semibold leading-6 text-gray-500 dark:text-gray-200"
+                                    class="mb-3 text-xl font-semibold leading-6 text-gray-500 dark:text-gray-200"
                                 >
                                     {{ $event->title }}
                                 </h4>
 
                                 <p>{!! nl2br($event->summary) !!}</p>
+                            </div>
                             </div>
                         </a>
                     @endforeach
@@ -159,28 +161,30 @@
                                 class="absolute inset-0 scale-0 rounded bg-et-light-skyblue/50 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-et-light-skyblue dark:bg-gray-800 dark:group-active:bg-blue-600 dark:group-active:bg-opacity-25"
                             ></div>
                             <div class="relative">
-                                <div class="aspect-video aspect-w-4 block bg-et-crimson">
+                                <div class="aspect-video aspect-w-4 block bg-et-crimson rounded-3xl overflow-hidden">
                                     @if( $post->featuredImage )
                                         <x-media-image-renderer
                                             :media="$post->featuredImage->media_id"
-                                            imgClass="object-cover object-center h-full w-full"
+                                            imgClass="object-cover object-center h-full w-full rounded-3xl"
                                         />
                                     @endif
                                 </div>
+                                <div class="px-4">
                                 <p
-                                    class="mb-1 mt-3 text-sm font-medium text-gray-600 dark:text-gray-400"
+                                    class="mb-2 mt-4 text-sm font-medium text-gray-600 dark:text-gray-400"
                                 >
                                 <span class="font-medium">
-                                    {{ $post->published_at }}
+                                    {{ $post->published_at->format('j F Y') }}
                                 </span>
                                 </p>
                                 <h4
-                                    class="mb-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-200"
+                                    class="mb-3 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-200"
                                 >
                                     {{ $post->title }}
                                 </h4>
 
                                 <p class="line-clamp-4">{!! nl2br($post->summary) !!}</p>
+                                </div>
                             </div>
                         </a>
                     @endforeach

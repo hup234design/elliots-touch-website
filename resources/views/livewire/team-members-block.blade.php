@@ -22,14 +22,15 @@
                             class="absolute inset-0 scale-0 rounded bg-et-light-skyblue/50 opacity-0 transition group-hover:scale-110 group-hover:opacity-100 group-active:bg-et-light-skyblue dark:bg-gray-800 dark:group-active:bg-blue-600 dark:group-active:bg-opacity-25"
                         ></div>
                         <div class="relative">
-                            <div class="aspect-square aspect-w-4 block bg-et-crimson">
+                            <div class="aspect-square aspect-w-4 block bg-et-crimson rounded-full overflow-hidden">
                                 @if( $team_member->media )
                                     <x-media-image-renderer
                                         :media="$team_member->media"
-                                        imgClass="object-cover object-center h-full w-full"
+                                        imgClass="object-cover object-center h-full w-full rounded-full "
                                     />
                                @endif
                             </div>
+                            <div class="text-center">
                             <h4
                                 class="mt-4 mb-2 text-lg font-semibold leading-6 text-gray-500 dark:text-gray-200"
                             >
@@ -37,6 +38,7 @@
                             </h4>
 
                             <p>{!! nl2br($team_member->bio) !!}</p>
+                            </div>
                         </div>
                     </div>
                     @endforeach
