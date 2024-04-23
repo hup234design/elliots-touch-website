@@ -1,4 +1,9 @@
 <x-posts-layout>
+
+    @section('page-header')
+        <x-page-header :title="cmsSetting('posts_title')" />
+    @endsection
+
     <div class="container">
       <div class="prose max-w-none">
           <h1>{{ $post->title }}</h1>
