@@ -57,14 +57,14 @@
                         <!-- END Card Cover -->
 
                         <!-- Card Body -->
-                        <div class="grow py-8">
+                        <div class="prose max-w-none grow py-8">
 {{--                            <p class="mb-1 font-semibold text-blue-500">Stories</p>--}}
-                            <h3 class="mb-2 text-xl font-semibold">
+                            <h3 class="">
                                 {{ $sectionItem->title }}
                             </h3>
-                            <h3 class="mb-2 text-lg font-semibold text-gray-700">
+                            <h4 class="">
                                 {{ $sectionItem->subtitle }}
-                            </h3>
+                            </h4>
                             @if($sectionItem->summary)
                                 {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
                             @endif
@@ -98,9 +98,9 @@
                             @endif
                         </div>
                         <div
-                            class="w-full p-6 md:w-3/5 lg:self-center md:px-10 md:py-8 xl:w-2/3"
+                            class="prose max-w-none w-full p-6 md:w-3/5 lg:self-center md:px-10 md:py-8 xl:w-2/3"
                         >
-                            <h4 class="mb-2 text-lg font-bold sm:text-xl">
+                            <h4 class="">
                                 <a
                                     href="javascript:void(0)"
                                     class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400"
