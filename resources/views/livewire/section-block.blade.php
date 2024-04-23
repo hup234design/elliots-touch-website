@@ -59,12 +59,12 @@
                         <!-- Card Body -->
                         <div class="prose max-w-none grow py-8">
 {{--                            <p class="mb-1 font-semibold text-blue-500">Stories</p>--}}
-                            <h3 class="">
+                            <h2 class="">
                                 {{ $sectionItem->title }}
-                            </h3>
-                            <h4 class="">
+                            </h2>
+                            <h3 class="">
                                 {{ $sectionItem->subtitle }}
-                            </h4>
+                            </h3>
                             @if($sectionItem->summary)
                                 {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
                             @endif
@@ -100,9 +100,9 @@
                         <div
                             class="prose max-w-none w-full p-6 md:w-3/5 lg:self-center md:px-10 md:py-8 xl:w-2/3"
                         >
-                            <h4 class="">
+                            <h2 class="">
                                 {{ $sectionItem->title }}
-                            </h4>
+                            </h2>
 {{--                            <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">--}}
 {{--                                <a--}}
 {{--                                    href="javascript:void(0)"--}}
