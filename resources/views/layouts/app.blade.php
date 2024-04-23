@@ -24,7 +24,7 @@
 
                 @if(cmsSetting('social_twitter'))
                     <a href="{{ cmsSetting('social_twitter') }}" target="_blank">
-                        <x-si-twitter class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
+                        <x-si-x class="w-8 h-8 text-et-skyblue hover:text-et-dark-crimson "/>
                     </a>
                 @endif
                 @if(cmsSetting('social_linkedin'))
@@ -158,7 +158,7 @@
             @if(cmsSetting('social_twitter'))
                 <li>
                     <a href="{{ cmsSetting('social_twitter') }}" target="_blank">
-                        <x-si-twitter class="w-8 h-8 text-brand-blue "/>
+                        <x-si-x class="w-8 h-8 text-brand-blue "/>
                     </a>
                 </li>
             @endif
