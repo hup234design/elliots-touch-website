@@ -33,7 +33,7 @@
             function initMap() {
                 var location = {lat: {{ $this->data['location']['lat'] }}, lng: {{ $this->data['location']['lng'] }}};
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 15,
+                    zoom: 12,
                     center: location
                 });
                 var marker = new google.maps.Marker({
