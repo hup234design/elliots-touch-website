@@ -101,12 +101,7 @@
                             class="prose max-w-none w-full p-6 md:w-3/5 lg:self-center md:px-10 md:py-8 xl:w-2/3"
                         >
                             <h4 class="">
-                                <a
-                                    href="javascript:void(0)"
-                                    class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400"
-                                >
-                                    {{ $sectionItem->title }}
-                                </a>
+                                {{ $sectionItem->title }}
                             </h4>
 {{--                            <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">--}}
 {{--                                <a--}}
