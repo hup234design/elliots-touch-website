@@ -59,10 +59,10 @@
                         <!-- Card Body -->
                         <div class="prose max-w-none grow py-8">
 {{--                            <p class="mb-1 font-semibold text-blue-500">Stories</p>--}}
-                            <h2 class="">
+                            <h2 class="text-et-navy">
                                 {{ $sectionItem->title }}
                             </h2>
-                            <h3 class="">
+                            <h3 class="text-et-light-navy">
                                 {{ $sectionItem->subtitle }}
                             </h3>
                             @if($sectionItem->summary)
@@ -100,7 +100,7 @@
                         <div
                             class="prose max-w-none w-full p-6 md:w-3/5 lg:self-center md:px-10 md:py-8 xl:w-2/3"
                         >
-                            <h2 class="">
+                            <h2 class="text-et-navy">
                                 {{ $sectionItem->title }}
                             </h2>
 {{--                            <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">--}}
