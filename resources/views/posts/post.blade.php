@@ -7,6 +7,14 @@
     <div class="container">
       <div class="prose max-w-none">
           <h1>{{ $post->title }}</h1>
+
+          @if( $post->featuredImage )
+              <x-media-image-renderer
+                  :media="$post->featuredImage->media_id"
+                  imgClass="w-full h-auto"
+              />
+          @endif
+
           @if($post->content)
               {!! tiptap_converter()->asHTML($post->content) !!}
           @endif
