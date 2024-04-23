@@ -29,7 +29,11 @@
                     <div>
                         <div class="flex items-center gap-x-4 text-sm">
                             <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
-                            <a href="javascript: void;" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                            @if($category = $post->postCategory)
+                                <a href="javascript: void;" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                                    {{ $category->title }}
+                                </a>
+                            @endif
                         </div>
                         <div class="group relative">
                             <a href="{{ route('posts.post', $post->slug) }}">
