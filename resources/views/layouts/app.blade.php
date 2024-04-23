@@ -82,7 +82,7 @@
                                     </button>
                                 @endif
                                 <div class="hidden group-hover:block absolute right-0 -mr-2 z-50" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                    <div class="relative mt-2 text-right border rounded-md shadow-lg py-1 bg-white whitespace-nowrap min-w-[160px]" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                    <div class="relative text-right border rounded-md shadow-lg py-1 bg-white whitespace-nowrap min-w-[160px]" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                         @foreach( $link['children'] as $child )
                                             <a href="{{ $child['href'] }}" target="{{ $link['target'] }}" class="block px-8 py-2 text-base font-semibold text-gray-700 hover:bg-gray-100 hover:text-red-700" role="menuitem">
                                                 {{ $child['label'] }}
