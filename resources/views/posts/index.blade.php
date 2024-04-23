@@ -10,9 +10,7 @@
                 {!! tiptap_converter()->asHTML($content) !!}
             @endif
         </div>
-
         <div class="space-y-20 lg:space-y-20">
-
             @foreach( $posts as $post )
                 <article class="relative isolate flex flex-col gap-8 lg:flex-row">
                     <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/9] lg:w-64 lg:shrink-0 bg-et-crimson rounded-2xl overflow-hidden">
@@ -28,7 +26,7 @@
                     </div>
                     <div>
                         <div class="flex items-center gap-x-4 text-sm">
-                            <time datetime="2020-03-16" class="text-gray-500">
+                            <time datetime="{{ $post->published_at->format('Y-m-d') }}" class="text-gray-500">
                                 {{ $post->published_at->format('j F Y') }}
                             </time>
                             @if($category = $post->postCategory)
@@ -40,7 +38,6 @@
                         <div class="group relative">
                             <a href="{{ route('posts.post', $post->slug) }}">
                                 <h3 class="mt-3 text-xl font-semibold leading-6 text-et-navy group-hover:text-et-light-navy">
-
                                     <span class="absolute inset-0"></span>
                                     {{ $post->title }}
                                 </h3>
