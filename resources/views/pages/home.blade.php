@@ -39,7 +39,7 @@
         <div class="container py-6">
             <div class="grid gap-24 lg:grid-cols-5">
                 <div class="col-span-3 flex flex-col justify-center">
-                    <h2 class="mb-4 text-3xl font-heading font-bold  text-blue-900 dark:text-white">
+                    <h2 class="mb-4 text-3xl font-heading font-bold text-et-navy dark:text-white">
                         {{ $page->introduction_heading }}
                     </h2>
                     <p
