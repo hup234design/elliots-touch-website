@@ -4,6 +4,11 @@
 .container {
     @apply max-w-7xl mx-auto px-6 lg:px-8;
 }
+
+p a {
+    @apply underline hover:cursor-pointer;
+}
+
 a[data-as-button="true"] {
     background-color: theme("colors.gray.900");
     color: white !important;
