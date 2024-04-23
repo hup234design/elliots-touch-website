@@ -7,7 +7,9 @@
     <div class="container">
       <div class="prose max-w-none">
 
-          <div class="flex items-center gap-x-4 text-sm">
+          <h1>{{ $post->title }}</h1>
+
+          <p class="flex items-center gap-x-4 text-sm">
               <time datetime="2020-03-16" class="text-gray-500">
                   {{ $post->published_at->format('j F Y') }}
               </time>
@@ -16,9 +18,7 @@
                       {{ $category->title }}
                   </a>
               @endif
-          </div>
-
-          <h1>{{ $post->title }}</h1>
+          </p>
 
           @if( $post->featuredImage )
               <x-media-image-renderer
