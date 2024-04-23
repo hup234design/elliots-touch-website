@@ -9,6 +9,7 @@
     @googlefonts('gloria-hallelujah')
     @vite(['resources/css/app.css','resources/js/app.js'])
     @livewireStyles
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('cms.google_maps_api_key', '') }}&callback=initMap&libraries=&v=weekly" async></script>
 </head>
 <body class="antialiased text-gray-700">
 

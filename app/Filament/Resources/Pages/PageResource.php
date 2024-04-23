@@ -63,9 +63,7 @@ class PageResource extends Resource
                                     ->blockNumbers(false)
                                     ->columnSpanFull()
                                     ->blocks([
-                                        ...ContentBlocks::make(),
-                                        LatestPostsBlock::blockSchema(),
-                                        UpcomingEventsBlock::blockSchema(),
+                                        ...ContentBlocks::make()
                                     ])
                                     ->collapsible()
                                     ->collapsed(true),

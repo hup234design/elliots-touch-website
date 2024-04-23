@@ -4,6 +4,7 @@ namespace App\Filament\Forms\Schemas;
 
 use App\Livewire\EditorBlock;
 use App\Livewire\GalleryBlock;
+use App\Livewire\GoogleMapBlock;
 use App\Livewire\ImageBlock;
 use App\Livewire\SectionBlock;
 use App\Livewire\TeamMembersBlock;
@@ -28,6 +29,7 @@ class ContentBlocks
             TestimonialsBlock::blockSchema(),
             ImageBlock::blockSchema(),
             TeamMembersBlock::blockSchema(),
+            GoogleMapBlock::blockSchema(),
             // other statically defined blocks can go here
         ], $customBlocks);
     }
