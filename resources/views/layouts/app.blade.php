@@ -81,7 +81,7 @@
 {{--                                        <svg class="fill-current h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6h12l-6 6z"/></svg>--}}
                                     </button>
                                 @endif
-                                <div class="hidden group-hover:block absolute right-0 -mr-6 z-50" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <div class="hidden group-hover:block absolute right-0 -mr-4 z-50" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                     <div class="relative text-right rounded-b-md shadow-lg py-1 bg-white whitespace-nowrap min-w-[160px]" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                         @foreach( $link['children'] as $child )
                                             <a href="{{ $child['href'] }}" target="{{ $link['target'] }}" class="block px-4 py-2 text-base font-semibold text-gray-700 hover:bg-gray-100 hover:text-red-700" role="menuitem">
