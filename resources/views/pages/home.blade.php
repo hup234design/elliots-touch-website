@@ -78,7 +78,7 @@
     <div class="mt-16">
 
             <div class="mx-auto text-center mb-16">
-                <h2 class="mb-4 text-6xl font-heading text-blue-900 tracking-tight">
+                <h2 class="mb-4 text-6xl font-heading text-et-navy tracking-tight">
                     Upcoming Events
                 </h2>
 {{--                <h3--}}
@@ -138,7 +138,7 @@
     <div class="mt-24">
 
             <div class="mx-auto text-center mb-16">
-                <h2 class="mb-4 text-6xl font-heading text-blue-900 tracking-tight dark:text-white">
+                <h2 class="mb-4 text-6xl font-heading text-et-navy tracking-tight dark:text-white">
                     Latest News
                 </h2>
 {{--                <h3--}}
