@@ -51,6 +51,7 @@
                         class="flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 dark:text-gray-100"
                     >
                         <!-- Card Cover -->
+                        <div class="bg-et-crimson">
                         <div @class([
                             "aspect-video" => $this->data['image_style'] != 'circle',
                             "aspect-square" => $this->data['image_style'] == 'circle'
@@ -68,6 +69,7 @@
                                 />
                             @endif
                             </div>
+                        </div>
                         <!-- END Card Cover -->
 
                         <!-- Card Body -->
