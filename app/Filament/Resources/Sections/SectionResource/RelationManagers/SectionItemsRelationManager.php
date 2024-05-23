@@ -34,7 +34,7 @@ class SectionItemsRelationManager extends RelationManager
 //                    ->output(TiptapOutput::Html)
 //                    ->columnSpanFull(),
                 TiptapEditor::make('content')
-                    ->profile('minimal')
+                    ->profile('default')
                     ->maxWidth('full')
                     ->output(TiptapOutput::Json)
                     ->columnSpanFull(),
