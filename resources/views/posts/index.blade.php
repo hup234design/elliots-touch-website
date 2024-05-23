@@ -1,4 +1,4 @@
-<x-posts-layout>
+<x-app-layout>
 
     @section('page-header')
         <x-page-header :title="cmsSetting('posts_title')" />
@@ -13,12 +13,12 @@
         <div class="space-y-20 lg:space-y-20">
             @foreach( $posts as $post )
                 <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                    <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/9] lg:w-64 lg:shrink-0 bg-et-crimson rounded-2xl overflow-hidden">
-                        <div class="aspect-video aspect-w-4 block bg-et-crimson rounded-3xl overflow-hidden">
+                    <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/9] lg:w-1/4 lg:shrink-0 bg-et-crimson rounded-lg overflow-hidden">
+                        <div class="aspect-video aspect-w-4 block bg-et-crimson rounded-lg overflow-hidden">
                             @if( $post->featuredImage )
                                 <x-media-image-renderer
                                     :media="$post->featuredImage->media_id"
-                                    imgClass="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
+                                    imgClass="absolute inset-0 h-full w-full rounded-lg bg-gray-50 object-cover"
                                 />
                             @endif
                         </div>
@@ -58,4 +58,4 @@
         </div>
 
     </div>
-</x-posts-layout>
+</x-app-layout>

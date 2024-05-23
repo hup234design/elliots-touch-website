@@ -17,10 +17,10 @@
                             <p class="mb-1 text-sm font-medium text-gray-600 dark:text-gray-400">
                                 {{ $post->published_at->format('l jS F Y') }}
                             </p>
-                            <h4 class="mb-2 text-lg font-bold sm:text-xl">
+                            <h4 class="mb-2 text-lg font-semibold sm:text-xl">
                                 <a
                                     href="{{ route('posts.post', $post->slug) }}"
-                                    class="leading-7 text-gray-800 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400"
+                                    class="leading-7 text-et-navy hover:text-et-skyblue dark:text-gray-200 dark:hover:text-gray-400"
                                 >
                                     {{ $post->title }}
                                 </a>
