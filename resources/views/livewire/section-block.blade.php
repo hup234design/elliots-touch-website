@@ -88,11 +88,6 @@
                             <h3 class="text-et-light-navy">
                                 {{ $sectionItem->subtitle }}
                             </h3>
-                            @if($sectionItem->summary)
-                                <div class="font-medium">
-                                {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
-                                </div>
-                            @endif
                             @if($sectionItem->content)
                                 {!! tiptap_converter()->asHTML($sectionItem->content) !!}
                             @endif
@@ -139,8 +134,8 @@
 {{--                                >--}}
 {{--                                on <span class="font-medium">March 3, 2023</span> · 12 min read--}}
 {{--                            </p>--}}
-                            @if($sectionItem->summary)
-                                {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
+                            @if($sectionItem->content)
+                                {!! tiptap_converter()->asHTML($sectionItem->content) !!}
                             @endif
                         </div>
                     </div>
