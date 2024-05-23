@@ -22,42 +22,59 @@
     @endif
 
     @switch($this->data['layout'])
-        @case("imageOverlay")
-            <div class="grid grid-cols-3 gap-8">
-                @foreach($section?->sectionItems ?? [] as $sectionItem)
-                    <div class="aspect-square bg-et-crimson">
-                        @if( $sectionItem->featuredImage )
-                                <x-media-image-renderer
-                                    :media="$sectionItem->featuredImage->media_id"
-                                    imgClass="object-cover object-center h-full w-full "
-                                />
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-            @break
+
+{{--        @case("imageOverlay")--}}
+{{--            <div class="grid grid-cols-3 gap-8">--}}
+{{--                @foreach($section?->sectionItems ?? [] as $sectionItem)--}}
+{{--                    <div class="aspect-square bg-et-crimson">--}}
+{{--                        @if( $sectionItem->featuredImage )--}}
+{{--                                <x-media-image-renderer--}}
+{{--                                    :media="$sectionItem->featuredImage->media_id"--}}
+{{--                                    imgClass="object-cover object-center h-full w-full "--}}
+{{--                                />--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--            @break--}}
+
         @case("cardGrid")
-            <div class="grid grid-cols-2 gap-16">
+            <div @class([
+                "grid grid-cols-2 gap-8",
+                "grid-cols-2" => $this->data['grid_cols'] == 2,
+                "grid-cols-3" => $this->data['grid_cols'] == 3,
+                "grid-cols-4" => $this->data['grid_cols'] == 4,
+            ])>
                 @foreach($section?->sectionItems ?? [] as $sectionItem)
                     <!-- Cards: Story -->
                     <div
                         class="flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 dark:text-gray-100"
                     >
                         <!-- Card Cover -->
-                        <div class="bg-et-crimson">
-                            <div class="aspect-video">
+                        <div @class([
+                            "aspect-video" => $this->data['image_style'] != 'circle',
+                            "aspect-square" => $this->data['image_style'] == 'circle'
+                        ])>
                         @if( $sectionItem->featuredImage )
                                 <x-media-image-renderer
                                     :media="$sectionItem->featuredImage->media_id"
-                                    imgClass="object-cover object-center h-full w-full "
+                                    imgClass="
+                                        object-cover object-center h-full w-full
+                                        {{ $this->data['image_style'] == 'circle'
+                                            ? 'rounded-full'
+                                            : ($this->data['image_style'] == 'rounded' ? 'rounded-3xl' : '' )
+                                        }}
+                                    "
                                 />
                             @endif
                             </div>
-                        </div>
                         <!-- END Card Cover -->
 
                         <!-- Card Body -->
-                        <div class="prose max-w-none grow py-8">
+                        <div @class([
+                            "prose max-w-none grow py-8",
+                            "text-center" => $this->data['text_alignment'] == 'center'
+                        ])>
 {{--                            <p class="mb-1 font-semibold text-blue-500">Stories</p>--}}
                             <h2 class="text-et-navy">
                                 {{ $sectionItem->title }}
