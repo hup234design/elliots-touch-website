@@ -88,6 +88,11 @@
                             <h3 class="text-et-light-navy">
                                 {{ $sectionItem->subtitle }}
                             </h3>
+                            @if($sectionItem->summary)
+                                <div class="font-medium">
+                                {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
+                                </div>
+                            @endif
                             @if($sectionItem->content)
                                 {!! tiptap_converter()->asHTML($sectionItem->content) !!}
                             @endif
