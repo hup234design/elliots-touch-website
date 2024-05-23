@@ -40,7 +40,7 @@
 
         @case("cardGrid")
             <div @class([
-                "grid grid-cols-2 gap-8",
+                "grid grid-cols-2 gap-16",
                 "grid-cols-2" => $this->data['grid_cols'] == 2,
                 "grid-cols-3" => $this->data['grid_cols'] == 3,
                 "grid-cols-4" => $this->data['grid_cols'] == 4,
