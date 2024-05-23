@@ -51,23 +51,27 @@
                         class="flex flex-col overflow-hidden rounded-lg bg-white dark:bg-gray-800 dark:text-gray-100"
                     >
                         <!-- Card Cover -->
-                        <div class="bg-et-crimson">
                         <div @class([
-                            "aspect-video" => $this->data['image_style'] != 'circle',
-                            "aspect-square" => $this->data['image_style'] == 'circle'
+                            "bg-et-crimson overflow-hidden",
+                            "rounded-full" => $this->data['image_style'] == 'circle',
+                            "rounded-3xl" => $this->data['image_style'] == 'rounded',
                         ])>
-                        @if( $sectionItem->featuredImage )
-                                <x-media-image-renderer
-                                    :media="$sectionItem->featuredImage->media_id"
-                                    imgClass="
-                                        object-cover object-center h-full w-full
-                                        {{ $this->data['image_style'] == 'circle'
-                                            ? 'rounded-full'
-                                            : ($this->data['image_style'] == 'rounded' ? 'rounded-3xl' : '' )
-                                        }}
-                                    "
-                                />
-                            @endif
+                            <div @class([
+                                "aspect-video" => $this->data["image_style"] != 'circle',
+                                "aspect-square" => $this->data["image_style"] == 'circle'
+                            ])>
+                                @if( $sectionItem->featuredImage )
+                                    <x-media-image-renderer
+                                        :media="$sectionItem->featuredImage->media_id"
+                                        imgClass="
+                                            object-cover object-center h-full w-full
+                                            {{ $this->data['image_style'] == 'circle'
+                                                ? 'rounded-full'
+                                                : ($this->data['image_style'] == 'rounded' ? 'rounded-3xl' : '' )
+                                            }}
+                                        "
+                                    />
+                                @endif
                             </div>
                         </div>
                         <!-- END Card Cover -->
