@@ -88,8 +88,8 @@
                             <h3 class="text-et-light-navy">
                                 {{ $sectionItem->subtitle }}
                             </h3>
-                            @if($sectionItem->summary)
-                                {!! tiptap_converter()->asHTML($sectionItem->summary) !!}
+                            @if($sectionItem->content)
+                                {!! tiptap_converter()->asHTML($sectionItem->content) !!}
                             @endif
                         </div>
                         <!-- END Card Body -->
